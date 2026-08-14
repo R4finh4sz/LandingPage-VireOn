@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Calendar, CheckCircle2, MapPin, MessageCircle } from 'lucide-react'
 import { C, WHATSAPP_DISPLAY, buildWhatsAppLink } from '../lib/branding'
 import { Eyebrow, PrimaryButton, Reveal } from './ui'
+import { contactSchema, formatPhone } from '../validation/contactForm'
 
-function Field({ label, name, value, onChange, placeholder, type = 'text' }) {
+function Field({ label, name, value, onChange, placeholder, type = 'text', error }) {
   return (
     <div>
       <label className="font-body mb-1.5 block text-xs font-medium" style={{ color: C.textDimLight }}>{label}</label>
@@ -14,24 +15,52 @@ function Field({ label, name, value, onChange, placeholder, type = 'text' }) {
         onChange={onChange}
         placeholder={placeholder}
         className="font-body w-full rounded-md px-3.5 py-2.5 text-sm outline-none transition-colors"
-        style={{ border: `1px solid ${C.lineLight}`, color: C.ink }}
+        style={{ border: `1px solid ${error ? '#ff8d8d' : C.lineLight}`, color: C.ink }}
         onFocus={(e) => (e.currentTarget.style.borderColor = C.blue)}
         onBlur={(e) => (e.currentTarget.style.borderColor = C.lineLight)}
       />
+      {error && <p className="mt-1.5 font-body text-xs" style={{ color: '#ff8d8d' }}>{error}</p>}
     </div>
   )
 }
 
 export default function ContactSection() {
   const [form, setForm] = useState({ nome: '', empresa: '', whatsapp: '', segmento: '' })
+  const [errors, setErrors] = useState({})
   const [justSent, setJustSent] = useState(false)
 
-  const handleChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }))
+  const handleChange = (e) => {
+    const { name, value } = e.target
+
+    setForm((f) => ({
+      ...f,
+      [name]: name === 'whatsapp' ? formatPhone(value) : value,
+    }))
+
+    setErrors((current) => ({ ...current, [name]: undefined }))
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    window.open(buildWhatsAppLink(form), '_blank', 'noopener,noreferrer')
+
+    const result = contactSchema.safeParse(form)
+
+    if (!result.success) {
+      const nextErrors = {}
+      for (const issue of result.error.issues) {
+        const field = issue.path[0]
+        if (typeof field === 'string' && !nextErrors[field]) {
+          nextErrors[field] = issue.message
+        }
+      }
+
+      setErrors(nextErrors)
+      return
+    }
+
+    window.open(buildWhatsAppLink({ ...result.data, whatsapp: form.whatsapp }), '_blank', 'noopener,noreferrer')
     setJustSent(true)
+    setErrors({})
   }
 
   useEffect(() => {
@@ -79,10 +108,10 @@ export default function ContactSection() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid gap-4 sm:grid-cols-2">
-                <Field label="Nome" name="nome" value={form.nome} onChange={handleChange} placeholder="Seu nome" />
-                <Field label="Empresa" name="empresa" value={form.empresa} onChange={handleChange} placeholder="Nome da empresa" />
+                <Field label="Nome" name="nome" value={form.nome} onChange={handleChange} placeholder="Seu nome" error={errors.nome} />
+                <Field label="Empresa" name="empresa" value={form.empresa} onChange={handleChange} placeholder="Nome da empresa" error={errors.empresa} />
               </div>
-              <Field label="WhatsApp" name="whatsapp" value={form.whatsapp} onChange={handleChange} placeholder="(11) 99999-0000" />
+              <Field label="WhatsApp" name="whatsapp" value={form.whatsapp} onChange={handleChange} placeholder="(11) 97214-5975" type="tel" error={errors.whatsapp} />
               <div>
                 <label className="font-body mb-1.5 block text-xs font-medium" style={{ color: C.textDimLight }}>Segmento / Maior desafio</label>
                 <textarea
@@ -92,8 +121,9 @@ export default function ContactSection() {
                   rows={3}
                   placeholder="Ex: Restaurante. Meu maior desafio é o controle de pedidos..."
                   className="font-body w-full resize-none rounded-md px-3.5 py-2.5 text-sm outline-none transition-colors"
-                  style={{ border: `1px solid ${C.lineLight}`, color: C.ink }}
+                  style={{ border: `1px solid ${errors.segmento ? '#ff8d8d' : C.lineLight}`, color: C.ink }}
                 />
+                {errors.segmento && <p className="mt-1.5 font-body text-xs" style={{ color: '#ff8d8d' }}>{errors.segmento}</p>}
               </div>
               <PrimaryButton type="submit" className="w-full">
                 <MessageCircle size={16} />

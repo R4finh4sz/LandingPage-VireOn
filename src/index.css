@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f5f6f3;
+  color: #070b14;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+@keyframes scan {
+  0% {
+    top: -10%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 105%;
+    opacity: 0;
+  }
+}
+
+.scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #3fd69c, transparent);
+  box-shadow: 0 0 12px 2px rgba(63, 214, 156, 0.9);
+  animation: scan 3.5s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(20px, -24px) scale(1.06);
+  }
+  66% {
+    transform: translate(-16px, 14px) scale(0.97);
+  }
+}
+
+.orb {
+  animation: drift 14s ease-in-out infinite;
+}
+
+@keyframes pulseRing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(49, 89, 255, 0.35);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(49, 89, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(49, 89, 255, 0);
+  }
+}
+
+.pulse-ring {
+  animation: pulseRing 2.4s ease-out infinite;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  animation: fadeUp 0.8s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scanline,
+  .orb,
+  .pulse-ring {
+    animation: none;
+    opacity: 0.6;
+  }
+
+  .reveal {
+    animation: none;
+  }
+}

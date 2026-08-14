@@ -19,7 +19,7 @@ export default function ProcessSection() {
 
       <div className="relative mx-auto max-w-6xl">
         <Reveal className="mb-16 text-center">
-          <Eyebrow dark>Diagnóstico VireOn ao Crescimento Escalável</Eyebrow>
+          <Eyebrow dark>Diagnóstico Vireon ao Crescimento Escalável</Eyebrow>
           <h2 className="font-display mb-5 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Nosso processo é um raio X, não um chute</h2>
           <p className="font-body mx-auto max-w-2xl text-base leading-relaxed sm:text-lg" style={{ color: C.textDimDark }}>
             O Método MRXE 360 (Método Raio X Empresarial 360) garante que cada decisão seja embasada, cada solução seja eficaz e cada resultado seja mensurável.

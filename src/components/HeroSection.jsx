@@ -1,7 +1,7 @@
 import React from 'react'
 import { ArrowRight, CheckCircle2, ScanLine, Users, Zap } from 'lucide-react'
 import { C } from '../lib/branding'
-import { Eyebrow, GhostButton, PrimaryButton, Reveal } from './ui'
+import { Eyebrow, PrimaryButton, Reveal } from './ui'
 
 export default function HeroSection() {
   return (
@@ -26,12 +26,9 @@ export default function HeroSection() {
           </p>
           <div className="flex flex-wrap gap-4">
             <PrimaryButton onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}>
-              Falar no WhatsApp agora
+              Agendar no WhatsApp
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </PrimaryButton>
-            <GhostButton dark onClick={() => document.getElementById('processo')?.scrollIntoView({ behavior: 'smooth' })}>
-              Como funciona
-            </GhostButton>
           </div>
         </div>
 
@@ -43,8 +40,8 @@ export default function HeroSection() {
                 <ScanLine size={20} />
               </div>
               <div>
-                <div className="font-display text-sm font-semibold">VireOn Scan</div>
-                <div className="font-mono text-[11px]" style={{ color: C.textDimDark }}>soluções digitais</div>
+                <div className="font-display text-sm font-semibold">Vireon Scan</div>
+                <div className="font-mono text-[11px]" style={{ color: C.textDimDark }}>tecnologia e marketing</div>
               </div>
             </div>
 

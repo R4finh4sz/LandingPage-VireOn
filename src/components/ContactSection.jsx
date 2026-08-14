@@ -67,21 +67,7 @@ export default function ContactSection() {
             ))}
           </div>
 
-          <div className="space-y-3">
-            <a href={buildWhatsAppLink({})} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-md px-5 py-3 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5" style={{ background: `linear-gradient(135deg, ${C.blue}, ${C.blueBright})`, boxShadow: `0 12px 30px -10px ${C.blueGlow}` }}>
-              <MessageCircle size={16} />
-              Chamar no WhatsApp agora
-            </a>
-            <div className="font-body text-sm" style={{ color: C.textDimDark }}>
-              <div className="flex items-center gap-3">
-                <MessageCircle size={15} style={{ color: C.blueBright }} />
-                {WHATSAPP_DISPLAY}
-              </div>
-            </div>
-            <div className="flex items-center gap-3 font-body text-sm" style={{ color: C.textDimDark }}>
-              <MapPin size={15} /> São Paulo, Brasil
-            </div>
-          </div>
+         
         </Reveal>
 
         <Reveal delay={120}>

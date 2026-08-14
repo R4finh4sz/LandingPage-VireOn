@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { C } from '../lib/branding'
-import { GhostButton } from './ui'
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
@@ -20,7 +19,7 @@ export default function Nav() {
   ]
 
   return (
-    <nav className="sticky top-0 z-40 transition-colors duration-300" style={{ background: scrolled ? 'rgba(7,11,20,0.86)' : 'transparent', backdropFilter: scrolled ? 'blur(10px)' : 'none', borderBottom: `1px solid ${scrolled ? C.lineDark : 'transparent'}` }}>
+    <nav className="sticky top-0 z-40 transition-colors duration-300" style={{ background: scrolled ? 'rgba(7,11,20,0.88)' : 'rgba(7,11,20,0.78)', backdropFilter: 'blur(10px)', borderBottom: `1px solid ${C.lineDark}` }}>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-12">
         <div className="font-display text-xl font-semibold tracking-tight text-white">
           Vire<span style={{ color: C.blueBright }}>On</span>
@@ -35,10 +34,6 @@ export default function Nav() {
           ))}
         </div>
 
-        <div className="hidden md:block">
-          <GhostButton dark className="!px-5 !py-2.5 text-xs">Agendar Diagnóstico</GhostButton>
-        </div>
-
         <button className="text-white md:hidden" onClick={() => setOpen((o) => !o)} aria-label={open ? 'Fechar menu' : 'Abrir menu'}>
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
@@ -51,7 +46,6 @@ export default function Nav() {
               {l.label}
             </a>
           ))}
-          <GhostButton dark className="!w-fit !px-5 !py-2.5 text-xs">Agendar Diagnóstico</GhostButton>
         </div>
       )}
     </nav>

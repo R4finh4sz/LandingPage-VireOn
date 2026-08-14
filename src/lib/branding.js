@@ -1,5 +1,5 @@
-export const WHATSAPP_NUMBER = '5511999990000'
-export const WHATSAPP_DISPLAY = '(11) 99999-0000'
+export const WHATSAPP_NUMBER = '5511972145975'
+export const WHATSAPP_DISPLAY = '(11) 97214-5975'
 
 export const C = {
   ink: '#070B14',
@@ -20,7 +20,7 @@ export const C = {
 
 export function buildWhatsAppLink({ nome, empresa, whatsapp, segmento }) {
   const linhas = [
-    'Olá! Vim pelo site da VireOn e quero agendar um Diagnóstico Estratégico.',
+    'Olá! Vim pelo site da Vireon Soluções de Tecnologia e marketing e quero agendar um Diagnóstico Estratégico.',
     '',
     `Nome: ${nome || '-'}`,
     `Empresa: ${empresa || '-'}`,

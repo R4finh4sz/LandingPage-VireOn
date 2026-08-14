@@ -8,7 +8,6 @@ import PainSection from './components/PainSection'
 import PortfolioSection from './components/PortfolioSection'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
-import WhatsAppFloat from './components/WhatsAppFloat'
 
 export default function App() {
   return (
@@ -21,7 +20,6 @@ export default function App() {
       <PortfolioSection />
       <ContactSection />
       <Footer />
-      <WhatsAppFloat />
     </div>
   )
 }

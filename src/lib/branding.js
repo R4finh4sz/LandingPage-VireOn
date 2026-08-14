@@ -20,7 +20,7 @@ export const C = {
 
 export function buildWhatsAppLink({ nome, empresa, whatsapp, segmento }) {
   const linhas = [
-    'Olá! Vim pelo site da Vireon Soluções de Tecnologia e marketing e quero agendar um Diagnóstico Estratégico.',
+    'Olá! Vim pelo site da Vireon soluções de tecnologia e marketing e quero agendar um Diagnóstico Estratégico.',
     '',
     `Nome: ${nome || '-'}`,
     `Empresa: ${empresa || '-'}`,

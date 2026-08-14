@@ -9,7 +9,7 @@ export default function Footer() {
           Vireon
         </div>
         <p className="font-mono text-[11px]" style={{ color: C.textDimDark }}>
-          © {new Date().getFullYear()} Vireon Soluções de Tecnologia e marketing — MRXE 360
+          © {new Date().getFullYear()} Vireon soluções de tecnologia e marketing — MRXE 360
         </p>
       </div>
     </footer>

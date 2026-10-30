@@ -23,9 +23,9 @@ export default function PainSection() {
           {rows.map(({ pain, win }, i) => (
             <Reveal key={pain} delay={i * 100}>
               <div className="grid items-center gap-3 rounded-xl px-6 py-5 transition-all duration-300 hover:-translate-y-0.5 sm:grid-cols-[1fr_auto_1fr] sm:gap-6" style={{ background: C.paper2, border: `1px solid ${C.lineLight}` }}>
-                <span className="font-body text-sm sm:text-base" style={{ color: C.textDimLight }}>{pain}</span>
+                <span className="font-body text-base sm:text-base" style={{ color: C.textDimLight }}>{pain}</span>
                 <ArrowRight size={16} className="mx-auto hidden sm:block" style={{ color: C.blue }} />
-                <span className="font-display text-left text-sm font-semibold sm:text-left sm:text-base" style={{ color: C.ink }}>{win}</span>
+                <span className="font-display text-left text-base font-semibold sm:text-left sm:text-base" style={{ color: C.ink }}>{win}</span>
               </div>
             </Reveal>
           ))}

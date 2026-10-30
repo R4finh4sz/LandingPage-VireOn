@@ -9,7 +9,7 @@ export default function Footer() {
         <a href="#inicio" aria-label="Vireon, início" className="shrink-0 rounded-l px-3 py-2">
           <img src={logo} alt="Vireon, soluções de tecnologia e marketing" width="2172" height="724" className="h-auto w-48" />
         </a>
-        <p className="font-body text-xs text-center sm:text-right" style={{ color: C.textDimDark }}>
+        <p className="font-body text-sm text-center sm:text-right" style={{ color: C.textDimDark }}>
           © {new Date().getFullYear()} Vireon soluções de tecnologia e marketing | MRXE 360
         </p>
       </div>

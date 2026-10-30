@@ -30,11 +30,11 @@ export default function ProcessSection() {
             <Reveal key={code} delay={i * 80}>
               <div className="group relative h-full rounded-xl p-6 transition-all duration-300 hover:-translate-y-1" style={{ background: C.ink2, border: `1px solid ${C.lineDark}` }}>
                 <div className="mb-6 flex items-center justify-between">
-                  <span className="font-body text-sm font-medium" style={{ color: C.blueBright }}>Etapa {code}</span>
+                  <span className="font-body text-base font-medium" style={{ color: C.blueBright }}>Etapa {code}</span>
                   <Icon size={18} className="transition-colors duration-300" style={{ color: C.textDimDark }} />
                 </div>
-                <h3 className="font-display mb-2 text-base font-semibold text-white">{title}</h3>
-                <p className="font-body text-sm leading-relaxed" style={{ color: C.textDimDark }}>{copy}</p>
+                <h3 className="font-display mb-2 text-xl font-semibold text-white">{title}</h3>
+                <p className="font-body text-base leading-relaxed" style={{ color: C.textDimDark }}>{copy}</p>
               </div>
             </Reveal>
           ))}

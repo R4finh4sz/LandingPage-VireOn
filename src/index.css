@@ -130,7 +130,7 @@ h1, h2, h3 { text-wrap: balance; }
 h2 { line-height: 1.2; }
 h3 { line-height: 1.4; }
 p { text-wrap: pretty; }
-section p.text-sm { font-size: 1rem; line-height: 1.7; }
+p.text-base { line-height: 1.7; }
 section[id] { scroll-margin-top: 8rem; }
 @media (min-width: 768px) {
   section[id] { scroll-margin-top: 9rem; }

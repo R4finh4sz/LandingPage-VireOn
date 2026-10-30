@@ -26,7 +26,7 @@ export default function HeroSection() {
               Solicitar diagnóstico
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </PrimaryButton>
-            <a href="#projetos" className="inline-flex items-center gap-2 px-2 py-3.5 font-body text-sm font-medium text-white underline-offset-4 hover:underline">Conhecer projetos <ArrowRight size={16} aria-hidden="true" /></a>
+            <a href="#projetos" className="inline-flex items-center gap-2 px-2 py-3.5 font-body text-base font-medium text-white underline-offset-4 hover:underline">Conhecer projetos <ArrowRight size={16} aria-hidden="true" /></a>
           </div>
         </div>
 
@@ -38,8 +38,8 @@ export default function HeroSection() {
                 <ScanLine size={20} />
               </div>
               <div>
-                <div className="font-display text-sm font-semibold">Vireon Scan</div>
-                <div className="font-mono text-[11px]" style={{ color: C.textDimDark }}>tecnologia e marketing</div>
+                <div className="font-display text-xl font-semibold">Vireon Scan</div>
+                <div className="font-mono text-sm" style={{ color: C.textDimDark }}>tecnologia e marketing</div>
               </div>
             </div>
 
@@ -52,9 +52,9 @@ export default function HeroSection() {
                 <div key={label} className="flex flex-wrap items-center justify-between gap-3 rounded-lg px-4 py-3 transition-colors duration-300 hover:bg-white/[0.04]" style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${C.lineDark}` }}>
                   <div className="flex items-center gap-3">
                     <Icon size={16} style={{ color: C.blueBright }} />
-                    <span className="font-body text-sm" style={{ color: C.textDimDark }}>{label}</span>
+                    <span className="font-body text-base" style={{ color: C.textDimDark }}>{label}</span>
                   </div>
-                  <span className="font-mono text-sm font-medium">{value}</span>
+                  <span className="font-mono text-base font-medium">{value}</span>
                 </div>
               ))}
             </div>

@@ -19,21 +19,21 @@ export default function Nav() {
             <img src={logo} alt="Vireon, soluções de tecnologia e marketing" width="2172" height="724" className="h-auto w-40 sm:w-48" />
           </a>
 
-          <nav aria-label="Navegação principal" className="hidden items-center gap-7 font-body text-sm font-medium md:flex" style={{ color: C.textDimDark }}>
+          <nav aria-label="Navegação principal" className="hidden items-center gap-7 font-body text-base font-medium lg:flex" style={{ color: C.textDimDark }}>
             {links.map(({ href, label }) => (
               <a key={href} href={href} className="py-3 transition-colors hover:text-white">{label}</a>
             ))}
           </nav>
 
-          <a href="#contato" className="hidden items-center gap-3 rounded-lg px-5 py-3 font-body text-sm font-semibold bg-[#3159ff] text-white transition-colors hover:bg-[#2446d4] md:inline-flex">
+          <a href="#contato" className="hidden items-center gap-3 rounded-lg px-5 py-3 font-body text-base font-semibold bg-[#3159ff] text-white transition-colors hover:bg-[#2446d4] lg:inline-flex">
             Solicitar diagnóstico <ArrowUpRight size={17} aria-hidden="true" />
           </a>
-          <button type="button" className="flex h-11 w-11 items-center justify-center rounded-lg text-white hover:bg-white/10 md:hidden" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="menu-mobile" aria-label={open ? 'Fechar menu' : 'Abrir menu'}>
+          <button type="button" className="flex h-11 w-11 items-center justify-center rounded-lg text-white hover:bg-white/10 lg:hidden" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="menu-mobile" aria-label={open ? 'Fechar menu' : 'Abrir menu'}>
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
-        <nav id="menu-mobile" aria-label="Navegação no celular" hidden={!open} className="border-t px-5 pb-5 md:hidden" style={{ borderColor: C.lineDark }}>
+        <nav id="menu-mobile" aria-label="Navegação no celular" hidden={!open} className="border-t px-5 pb-5 lg:hidden" style={{ borderColor: C.lineDark }}>
           {links.map(({ href, label }) => (
             <a key={href} href={href} onClick={() => setOpen(false)} className="block py-3 font-body text-base text-white hover:underline">{label}</a>
           ))}

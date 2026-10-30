@@ -50,9 +50,9 @@ export function Reveal({ children, delay = 0, className = '', as: Tag = 'div' })
 export function PrimaryButton({ children, className = '', ...props }) {
   return (
     <button
-      className={`font-body inline-flex items-center justify-center gap-2 rounded-md px-6 py-3.5 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${className}`}
+      className={`font-body inline-flex items-center justify-center gap-2 rounded-md px-6 py-3.5 text-base font-medium transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${className}`}
       style={{
-        background: `linear-gradient(135deg, ${C.blue}, ${C.blueBright})`,
+        background: C.blue,
         color: '#fff',
         boxShadow: `0 8px 24px -8px ${C.blueGlow}`,
       }}

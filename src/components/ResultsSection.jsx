@@ -29,8 +29,8 @@ export default function ResultsSection() {
                 <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg" style={{ background: C.blueSoft }}>
                   <Icon size={18} style={{ color: C.blue }} />
                 </div>
-                <h3 className="font-display mb-2 text-base font-semibold" style={{ color: C.ink }}>{title}</h3>
-                <p className="font-body text-sm leading-relaxed" style={{ color: C.textDimLight }}>{copy}</p>
+                <h3 className="font-display mb-2 text-xl font-semibold" style={{ color: C.ink }}>{title}</h3>
+                <p className="font-body text-base leading-relaxed" style={{ color: C.textDimLight }}>{copy}</p>
               </div>
             </Reveal>
           ))}

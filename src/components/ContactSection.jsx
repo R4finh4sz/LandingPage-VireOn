@@ -7,7 +7,7 @@ import { contactSchema, formatPhone } from '../validation/contactForm'
 function Field({ label, name, value, onChange, placeholder, type = 'text', error }) {
   return (
     <div>
-      <label htmlFor={name} className="font-body mb-1.5 block text-sm font-medium" style={{ color: C.textDimLight }}>{label}</label>
+      <label htmlFor={name} className="font-body mb-1.5 block text-base font-medium" style={{ color: C.textDimLight }}>{label}</label>
       <input
         id={name}
         aria-invalid={Boolean(error)}
@@ -22,7 +22,7 @@ function Field({ label, name, value, onChange, placeholder, type = 'text', error
         onFocus={(e) => (e.currentTarget.style.borderColor = C.blue)}
         onBlur={(e) => (e.currentTarget.style.borderColor = C.lineLight)}
       />
-      {error && <p id={`${name}-error`} role="alert" className="mt-1.5 font-body text-xs" style={{ color: '#B42318' }}>{error}</p>}
+      {error && <p id={`${name}-error`} role="alert" className="mt-1.5 font-body text-sm" style={{ color: '#B42318' }}>{error}</p>}
     </div>
   )
 }
@@ -85,7 +85,7 @@ export default function ContactSection() {
           <p className="font-body mb-4 text-base leading-relaxed" style={{ color: C.textDimDark }}>
             Conte como sua empresa funciona e o que você gostaria de melhorar. Esse é o primeiro passo do diagnóstico.
           </p>
-          <p className="font-body mb-10 text-sm leading-relaxed" style={{ color: C.textDimDark }}>
+          <p className="font-body mb-10 text-base leading-relaxed" style={{ color: C.textDimDark }}>
             Preencha os dados para preparar a mensagem. O WhatsApp abrirá em outra aba para você revisar e enviar.
           </p>
 
@@ -93,7 +93,7 @@ export default function ContactSection() {
             {['Diagnóstico inicial gratuito','Plano personalizado para sua empresa','Suporte contínuo pós-entrega','Resultados mensuráveis desde o início'].map((item) => (
               <div key={item} className="flex items-center gap-3">
                 <CheckCircle2 size={16} style={{ color: C.blueBright }} />
-                <span className="font-body text-sm text-white">{item}</span>
+                <span className="font-body text-base text-white">{item}</span>
               </div>
             ))}
           </div>
@@ -105,7 +105,7 @@ export default function ContactSection() {
           <div className="rounded-2xl p-7 sm:p-9" style={{ background: C.paper2, border: `1px solid ${C.lineDark}`, boxShadow: `0 30px 60px -30px ${C.blueGlow}` }}>
             <div className="mb-6 flex items-center gap-2">
               <Calendar size={16} style={{ color: C.blue }} />
-              <h3 className="font-display text-sm font-semibold" style={{ color: C.ink }}>Diagnóstico gratuito</h3>
+              <h3 className="font-display text-xl font-semibold" style={{ color: C.ink }}>Diagnóstico gratuito</h3>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -115,7 +115,7 @@ export default function ContactSection() {
               </div>
               <Field label="WhatsApp" name="whatsapp" value={form.whatsapp} onChange={handleChange} placeholder="(11) 97214-5975" type="tel" error={errors.whatsapp} />
               <div>
-                <label htmlFor="segmento" className="font-body mb-1.5 block text-sm font-medium" style={{ color: C.textDimLight }}>Qual é o seu negócio e o principal desafio?</label>
+                <label htmlFor="segmento" className="font-body mb-1.5 block text-base font-medium" style={{ color: C.textDimLight }}>Qual é o seu negócio e o principal desafio?</label>
                 <textarea
                   id="segmento"
                   aria-invalid={Boolean(errors.segmento)}
@@ -128,7 +128,7 @@ export default function ContactSection() {
                   className="font-body w-full resize-none rounded-md px-3.5 py-2.5 text-base outline-none transition-colors"
                   style={{ border: `1px solid ${errors.segmento ? '#B42318' : C.lineLight}`, color: C.ink }}
                 />
-                {errors.segmento && <p id="segmento-error" role="alert" className="mt-1.5 font-body text-xs" style={{ color: '#B42318' }}>{errors.segmento}</p>}
+                {errors.segmento && <p id="segmento-error" role="alert" className="mt-1.5 font-body text-sm" style={{ color: '#B42318' }}>{errors.segmento}</p>}
               </div>
               <PrimaryButton type="submit" className="w-full">
                 <MessageCircle size={16} />
@@ -136,13 +136,13 @@ export default function ContactSection() {
               </PrimaryButton>
 
               {justSent && (
-                <div role="status" className="reveal flex items-center gap-2 rounded-md px-3.5 py-2.5 text-xs font-body" style={{ background: C.blueSoft, color: C.blue }}>
+                <div role="status" className="reveal flex items-center gap-2 rounded-md px-3.5 py-2.5 text-sm font-body" style={{ background: C.blueSoft, color: C.blue }}>
                   <CheckCircle2 size={14} />
                   Abrimos o WhatsApp em uma nova aba. É só enviar a mensagem por lá.
                 </div>
               )}
 
-              <p className="text-center font-body text-xs" style={{ color: C.textDimLight }}>
+              <p className="text-center font-body text-sm" style={{ color: C.textDimLight }}>
                 Sua mensagem vai direto para o nosso time no WhatsApp.
               </p>
             </form>

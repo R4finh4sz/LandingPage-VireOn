@@ -1,5 +1,5 @@
-export const WHATSAPP_NUMBER = '5511972145975'
-export const WHATSAPP_DISPLAY = '(11) 97214-5975'
+export const WHATSAPP_NUMBER = '5511974475770'
+export const WHATSAPP_DISPLAY = '(11) 97447-5770'
 
 export const C = {
   ink: '#070B14',

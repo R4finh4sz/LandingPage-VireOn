@@ -11,14 +11,16 @@ import Footer from './components/Footer'
 
 export default function App() {
   return (
-    <div className="font-body" style={{ background: C.paper }}>
+    <div className="font-body" style={{ background: C.ink }}>
       <Nav />
-      <HeroSection />
-      <ResultsSection />
-      <ProcessSection />
-      <PainSection />
-      <PortfolioSection />
-      <ContactSection />
+      <main>
+        <HeroSection />
+        <ResultsSection />
+        <ProcessSection />
+        <PainSection />
+        <PortfolioSection />
+        <ContactSection />
+      </main>
       <Footer />
     </div>
   )

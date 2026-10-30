@@ -1,22 +1,21 @@
 import React from 'react'
 import { ArrowRight, ScanLine } from 'lucide-react'
 import { C } from '../lib/branding'
-import { Eyebrow, Reveal } from './ui'
+import { Reveal } from './ui'
 
 export default function PainSection() {
   const rows = [
-    { pain: 'Enquanto você responde WhatsApp manualmente...', win: 'Seu concorrente automatizou.' },
-    { pain: 'Enquanto você faz orçamento no Excel...', win: 'Outro já integra tudo.' },
-    { pain: 'Enquanto sua equipe perde tempo e você contrata mais...', win: 'Outra empresa cresce com menos colaboradores.' },
+    { pain: 'Mensagens respondidas uma a uma', win: 'Automação de respostas frequentes' },
+    { pain: 'Orçamentos espalhados em planilhas', win: 'Informações reunidas em um sistema' },
+    { pain: 'Equipe ocupada com tarefas repetitivas', win: 'Mais tempo para tarefas que exigem atenção' },
   ]
 
   return (
-    <section className="px-6 py-20 md:px-12 md:py-28" style={{ background: C.paper }}>
+    <section className="px-6 pb-10 pt-20 md:px-12 md:pb-14 md:pt-28" style={{ background: C.paper }}>
       <div className="mx-auto max-w-4xl text-center">
         <Reveal>
-          <Eyebrow>O diagnóstico</Eyebrow>
-          <h2 className="font-display mb-14 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl" style={{ color: C.ink }}>
-            O problema não é a falta de tecnologia. É uma empresa funcionando do mesmo jeito há anos.
+          <h2 className="font-display mb-10 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl" style={{ color: C.ink }}>
+            Onde sua rotina pode melhorar?
           </h2>
         </Reveal>
 
@@ -26,15 +25,15 @@ export default function PainSection() {
               <div className="grid items-center gap-3 rounded-xl px-6 py-5 transition-all duration-300 hover:-translate-y-0.5 sm:grid-cols-[1fr_auto_1fr] sm:gap-6" style={{ background: C.paper2, border: `1px solid ${C.lineLight}` }}>
                 <span className="font-body text-sm sm:text-base" style={{ color: C.textDimLight }}>{pain}</span>
                 <ArrowRight size={16} className="mx-auto hidden sm:block" style={{ color: C.blue }} />
-                <span className="font-display text-right text-sm font-semibold sm:text-left sm:text-base" style={{ color: C.ink }}>{win}</span>
+                <span className="font-display text-left text-sm font-semibold sm:text-left sm:text-base" style={{ color: C.ink }}>{win}</span>
               </div>
             </Reveal>
           ))}
         </div>
 
         <Reveal>
-          <p className="font-display mb-16 text-lg font-medium sm:text-xl" style={{ color: C.ink }}>
-            A diferença não está nas pessoas. Está nos processos.
+          <p className="font-display mb-10 text-lg font-medium sm:text-xl" style={{ color: C.ink }}>
+            Começamos pelos processos que mais consomem tempo da equipe.
           </p>
         </Reveal>
 
@@ -43,7 +42,7 @@ export default function PainSection() {
             <div className="scanline" />
             <ScanLine className="mx-auto mb-6" size={22} style={{ color: C.blueBright }} />
             <p className="font-display mx-auto max-w-2xl text-xl leading-snug text-white sm:text-2xl">
-              Toda empresa possui dinheiro escondido dentro dos seus processos. Nossa missão é encontrá-lo utilizando tecnologia e colocá-lo no seu bolso.
+              Uma mensagem respondida mais rápido, um pedido sem retrabalho, uma informação fácil de encontrar. É nesses detalhes que a tecnologia precisa ajudar.
             </p>
           </div>
         </Reveal>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -14,7 +14,7 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Source Sans 3', sans-serif;
   background: #f5f6f3;
   color: #070b14;
 }
@@ -24,15 +24,16 @@ body {
 }
 
 .font-display {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Barlow', sans-serif;
 }
 
 .font-body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Source Sans 3', sans-serif;
 }
 
 .font-mono {
-  font-family: 'IBM Plex Mono', monospace;
+  font-variant-numeric: tabular-nums;
+  font-family: 'Source Sans 3', sans-serif;
 }
 
 @keyframes scan {
@@ -111,6 +112,8 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
   .scanline,
   .orb,
   .pulse-ring {
@@ -122,3 +125,17 @@ body {
     animation: none;
   }
 }
+
+h1, h2, h3 { text-wrap: balance; }
+h2 { line-height: 1.2; }
+h3 { line-height: 1.4; }
+p { text-wrap: pretty; }
+section p.text-sm { font-size: 1rem; line-height: 1.7; }
+section[id] { scroll-margin-top: 8rem; }
+@media (min-width: 768px) {
+  section[id] { scroll-margin-top: 9rem; }
+}
+::selection { background: #3159ff; color: #fff; }
+:focus-visible { outline: 2px solid #5b7cff; outline-offset: 4px; }
+input, textarea { caret-color: #3159ff; }
+input::placeholder, textarea::placeholder { color: #6b7280; opacity: 1; }

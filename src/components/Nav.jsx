@@ -1,53 +1,47 @@
-import React, { useEffect, useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import React, { useState } from 'react'
+import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { C } from '../lib/branding'
+import logo from '../images/Logo.png'
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
   const links = [
     { href: '#processo', label: 'Como funciona' },
-    { href: '#projetos', label: 'Cases' },
+    { href: '#projetos', label: 'Projetos' },
     { href: '#contato', label: 'Contato' },
   ]
 
   return (
-    <nav className="sticky top-0 z-40 transition-colors duration-300" style={{ background: scrolled ? 'rgba(7,11,20,0.88)' : 'rgba(7,11,20,0.78)', backdropFilter: 'blur(10px)', borderBottom: `1px solid ${C.lineDark}` }}>
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-12">
-        <div className="font-display text-xl font-semibold tracking-tight text-white">
-          Vire<span style={{ color: C.blueBright }}>On</span>
+    <header className="sticky top-0 z-40 px-6 py-3 md:px-12 md:py-5">
+      <div className="mx-auto max-w-6xl overflow-hidden rounded-2xl" style={{ background: C.ink3, border: `1px solid ${C.lineDark}` }}>
+        <div className="flex min-h-16 items-center justify-between gap-6 px-5 md:px-6">
+          <a href="#inicio" aria-label="Vireon, início" className="my-3 shrink-0 rounded-lg px-3 py-2">
+            <img src={logo} alt="Vireon, soluções de tecnologia e marketing" width="2172" height="724" className="h-auto w-40 sm:w-48" />
+          </a>
+
+          <nav aria-label="Navegação principal" className="hidden items-center gap-7 font-body text-sm font-medium md:flex" style={{ color: C.textDimDark }}>
+            {links.map(({ href, label }) => (
+              <a key={href} href={href} className="py-3 transition-colors hover:text-white">{label}</a>
+            ))}
+          </nav>
+
+          <a href="#contato" className="hidden items-center gap-3 rounded-lg px-5 py-3 font-body text-sm font-semibold bg-[#3159ff] text-white transition-colors hover:bg-[#2446d4] md:inline-flex">
+            Solicitar diagnóstico <ArrowUpRight size={17} aria-hidden="true" />
+          </a>
+          <button type="button" className="flex h-11 w-11 items-center justify-center rounded-lg text-white hover:bg-white/10 md:hidden" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="menu-mobile" aria-label={open ? 'Fechar menu' : 'Abrir menu'}>
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
 
-        <div className="hidden items-center gap-8 font-body text-sm md:flex" style={{ color: C.textDimDark }}>
-          {links.map((l) => (
-            <a key={l.href} href={l.href} className="group relative py-1 transition-colors hover:text-white">
-              {l.label}
-              <span className="absolute -bottom-0.5 left-0 h-px w-0 transition-all duration-300 group-hover:w-full" style={{ background: C.blueBright }} />
-            </a>
+        <nav id="menu-mobile" aria-label="Navegação no celular" hidden={!open} className="border-t px-5 pb-5 md:hidden" style={{ borderColor: C.lineDark }}>
+          {links.map(({ href, label }) => (
+            <a key={href} href={href} onClick={() => setOpen(false)} className="block py-3 font-body text-base text-white hover:underline">{label}</a>
           ))}
-        </div>
-
-        <button className="text-white md:hidden" onClick={() => setOpen((o) => !o)} aria-label={open ? 'Fechar menu' : 'Abrir menu'}>
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+          <a href="#contato" onClick={() => setOpen(false)} className="mt-2 flex items-center justify-center gap-3 rounded-lg px-5 py-3 font-body font-semibold text-white" style={{ background: C.blue }}>
+            Solicitar diagnóstico <ArrowUpRight size={17} aria-hidden="true" />
+          </a>
+        </nav>
       </div>
-
-      {open && (
-        <div className="reveal flex flex-col gap-4 border-t px-6 pb-6 font-body text-sm md:hidden" style={{ color: C.textDimDark, borderTop: `1px solid ${C.lineDark}` }}>
-          {links.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="pt-4 hover:text-white">
-              {l.label}
-            </a>
-          ))}
-        </div>
-      )}
-    </nav>
+    </header>
   )
 }

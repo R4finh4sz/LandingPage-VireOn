@@ -1,29 +1,28 @@
 import React from 'react'
 import { AlertTriangle, Users, Zap } from 'lucide-react'
 import { C } from '../lib/branding'
-import { Eyebrow, Reveal } from './ui'
+import { Reveal } from './ui'
 
 export default function ResultsSection() {
   const cards = [
-    { Icon: Users, title: 'Funcionários Menos Sobrecarregados', copy: 'Automatizamos tarefas repetitivas para que sua equipe foque no que realmente importa: crescer.' },
-    { Icon: AlertTriangle, title: 'Menos Erros', copy: 'Processos digitais reduzem falhas humanas e garantem consistência em cada operação da empresa.' },
-    { Icon: Zap, title: 'Atendimento Mais Rápido', copy: 'Clientes atendidos em segundos, não em horas. Sistemas integrados que aceleram cada interação.' },
+    { Icon: Users, title: 'Equipe menos sobrecarregada', copy: 'Automatizamos tarefas repetitivas para que sua equipe tenha mais tempo para atender clientes e cuidar da operação.' },
+    { Icon: AlertTriangle, title: 'Menos erros', copy: 'Processos digitais reduzem falhas humanas e garantem consistência em cada operação da empresa.' },
+    { Icon: Zap, title: 'Atendimento mais rápido', copy: 'Clientes atendidos em segundos, não em horas. Sistemas integrados que aceleram cada interação.' },
   ]
 
   return (
     <section className="px-6 py-20 md:px-12 md:py-28" style={{ background: C.paper }}>
       <div className="mx-auto max-w-6xl text-center">
         <Reveal>
-          <Eyebrow>O que seu negócio ganha</Eyebrow>
           <h2 className="font-display mb-5 text-3xl font-semibold tracking-tight sm:text-4xl" style={{ color: C.ink }}>
-            Você não compra um app. <span style={{ color: C.blue }}>Você compra resultados.</span>
+            Tecnologia que <span style={{ color: C.blue }}>facilita o trabalho.</span>
           </h2>
-          <p className="font-body mx-auto mb-16 max-w-2xl text-base leading-relaxed sm:text-lg" style={{ color: C.textDimLight }}>
-            Empresas não crescem porque têm mais tecnologia. Crescem porque eliminam desperdícios, automatizam processos e tomam decisões melhores. É exatamente isso que fazemos.
+          <p className="font-body mx-auto mb-10 max-w-2xl md:mb-12 text-base leading-relaxed sm:text-lg" style={{ color: C.textDimLight }}>
+            Sistemas e automações fazem sentido quando resolvem problemas da rotina. Nosso trabalho começa por entender o que precisa melhorar na sua empresa.
           </p>
         </Reveal>
 
-        <div className="grid gap-6 text-left sm:grid-cols-3">
+        <div className="grid gap-6 text-left md:grid-cols-3">
           {cards.map(({ Icon, title, copy }, i) => (
             <Reveal key={title} delay={i * 100}>
               <div className="h-full rounded-xl p-7 transition-all duration-300 hover:-translate-y-1" style={{ background: C.paper2, border: `1px solid ${C.lineLight}` }}>
